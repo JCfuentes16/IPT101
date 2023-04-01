@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+<body>
+ 
+ 
+<form method="POST">
+Enter the length
+<input type = "text" name = "le">
+<br/>
+ 
+Enter the width
+<input type = "text" name = "wi">
+<br/>
+ 
+<input type = "submit" name="btnsubmit" value = "submit">
+</form>
+<?php
+    $server = "localhost";
+    $user="root";
+    $password="";
+    $database="rectanglearea";
+ 
+    $con=mysqli_connect("localhost","root","","rectanglearea");
+ 
+if(isset($_POST['btnsubmit']))
+{   
+ 
+$l=$_POST['le'];
+$b=$_POST['wi'];
+ 
+$area=$l*$w;
+$peri= 2*($l+$w);
+      if(isset($_POST['btnsubmit']))
+      {
+      $res= mysqli_query($con,"INSERT INTO rectangle (length,width,area ,perimeter ) VALUES ('$l','$w','$area','$peri')");
+      
+      }
+echo "The aea of rectangle ".$area. "<br/>";
+echo "The perimeter of rectangle ".$peri. "<br/>";
+}
+?>
+ 
+</body>
+</html>
